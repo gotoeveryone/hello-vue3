@@ -1,5 +1,5 @@
 import { mount, flushPromises } from "@vue/test-utils";
-import Component from "@/components/HelloWorld.vue";
+import Component from "@/components/Home.vue";
 
 const VueSelectStub = {
   template: `<select :value="value" @change="$emit('change', $event)"><option v-for="option in options" :key="option.value" v-text="option.text" :value="option.value" /></select>`,
@@ -8,7 +8,7 @@ const VueSelectStub = {
 
 const createWrapper = (msg: string) => {
   return mount(Component, {
-    propsData: {
+    props: {
       msg,
     },
     global: {
@@ -24,15 +24,11 @@ const createWrapper = (msg: string) => {
   });
 };
 
-describe("HelloWorld", () => {
+describe("Home", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
   describe("マウント時", () => {
-    it("テキストが取得できること", () => {
-      const wrapper = createWrapper("hogefuga");
-      expect(wrapper.find("h1").text()).toBe("hogefuga");
-    });
     it("option が3件表示されていること", () => {
       const wrapper = createWrapper("hogefuga");
       expect(wrapper.findAll("option")).toHaveLength(3);

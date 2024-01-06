@@ -1,17 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Yahoo!!!!!!!!!!!" />
+  <RouterView />
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-facing-decorator';
-import HelloWorld from './components/HelloWorld.vue'
 
-@Component({
-  components: {
-    HelloWorld
-  }
-})
+@Component
 export default class App extends Vue {}
 </script>
 

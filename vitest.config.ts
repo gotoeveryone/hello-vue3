@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.join(__dirname, "src"),
+      "vue-property-decorator": path.join(__dirname, "node_modules/vue-facing-decorator/src/index.ts")
     },
   },
   test: {
