@@ -1,5 +1,5 @@
 <template>
-  <FormInput type="email" :value="value" @input="onInput" />
+  <FormInput :type="type" :value="value" @input="onInput" />
   <div v-if="state.errors" class="text-danger" v-text="state.errors[0]" />
 </template>
 

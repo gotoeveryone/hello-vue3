@@ -1,6 +1,5 @@
 <template>
   <ValidationObserver v-slot="{ handleSubmit }">
-  <div v-text="type" />
     <ValidationProvider
       vid="email"
       name="メールアドレス"
@@ -28,30 +27,22 @@
     >
       <FormInputWithError type="password" :state="validationState" v-model="password" />
     </ValidationProvider>
-    <button @click="handleSubmit(submit)">送信</button>
+    <AppButton @click="handleSubmit(submit)">送信</AppButton>
   </ValidationObserver>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
+import AppButton from "@/components/form/AppButton.vue";
 import FormInputWithError from "@/components/form/FormInputWithError.vue";
-
-export type TestType = {
-  type: string;
-};
 
 @Component({
   components: {
+    AppButton,
     FormInputWithError
   }
 })
-export default class Child extends Vue {
-  @Prop({
-    type: String,
-    default: "",
-  })
-  type!: TestType;
-
+export default class Form extends Vue {
   email = "hoge@example.com";
   invalidEmail = "hogefuga";
   password = "";
